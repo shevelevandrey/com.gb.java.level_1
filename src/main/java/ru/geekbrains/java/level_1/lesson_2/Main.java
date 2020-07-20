@@ -45,6 +45,9 @@ public class Main {
 
         System.out.printf(" -> result: %s", checkBalance( new int[]{ 1, 1, 1, 2, 1 } ) );
         System.out.println();
+
+        System.out.printf(" -> result: %s", checkBalance( new int[]{ 8, 4, 1, 1, 2 } ) );
+        System.out.println();
         System.out.println();
 
         // Task 7
@@ -143,14 +146,26 @@ public class Main {
      * Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true, checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||, эти символы в массив не входят.
      * */
     public static boolean checkBalance(int[] array) {
-        int sum = 0;
-        for (int i = 0; i < array.length; i++)
-            sum += array[i];
-
         System.out.print("input array: ");
         Arrays.stream( array ).forEach( i -> System.out.printf("%s ", i) );
 
-        return sum % 2 == 0;
+        int sum = 0;
+        int leftSum = 0;
+        int rightSum = 0;
+
+        for (int i = 0; i < array.length; i++)
+            sum += array[i];
+
+        if (sum % 2 != 0)  return false;
+
+        for (int i = 0; i < array.length; i++) {
+            if ( leftSum < sum/2  )
+                leftSum += array[i];
+            else
+                rightSum += array[i];
+        }
+
+        return leftSum == rightSum;
     }
 
 
