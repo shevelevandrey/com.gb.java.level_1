@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
-public class WordGame {
+public class GuessTheWord {
 
     /**
      *
@@ -21,6 +21,8 @@ public class WordGame {
      * Используем только маленькие буквы
      *
      * */
+
+    public static final String gameTitle = "Guess the word";
 
     public static void main(String[] args) {
 
@@ -48,7 +50,7 @@ public class WordGame {
 
     public static boolean isWordsEqual(String secretWord, String answerWord) {
         if (answerWord.equals(secretWord)) {
-            System.out.println("You won!");
+            System.out.println("\nYou won!");
             return true;
         }
 
@@ -63,7 +65,8 @@ public class WordGame {
     }
 
     public static void runGame(String[] words) {
-        System.out.println("You need to guess one of these words:");
+        System.out.printf("Good day! We offer you to play the game \"%s\".\n" +
+                "You need to guess one of these words:%n", gameTitle);
 
         printArray(words);
         String secretWord = getRandomWord(words);
@@ -79,6 +82,8 @@ public class WordGame {
 
             tryCount++;
         }
+
+        System.out.println("Goodbye! ;)");
     }
 
 }
