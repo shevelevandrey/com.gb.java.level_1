@@ -13,7 +13,7 @@ public class GuessTheNumber {
      *
      * */
 
-    public static final String gameTitle = "Guess the number";
+    private static final String gameTitle = "Guess the number";
 
     public static void main(String[] args) {
         runGame(0, 10,3);

@@ -22,7 +22,7 @@ public class GuessTheWord {
      *
      * */
 
-    public static final String gameTitle = "Guess the word";
+    private static final String gameTitle = "Guess the word";
 
     public static void main(String[] args) {
 
