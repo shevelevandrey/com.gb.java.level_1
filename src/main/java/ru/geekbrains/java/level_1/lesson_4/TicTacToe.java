@@ -206,6 +206,17 @@ public class TicTacToe {
         return pos;
     }
 
+    private static void printMessage(String message) {
+        for (int i = 0; i < message.length(); i++) {
+            System.out.print(message.charAt(i));
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
     private static boolean checkWin(char cell) {
         char[] verticalCells = new char[map.length];
 
@@ -245,19 +256,19 @@ public class TicTacToe {
         while (true) {
             doPlayerMove();
             if (checkWin(playerCell)) {
-                System.out.println("\nPlayer win!!! ;)");
+                printMessage("\nPlayer win!!! ;)");
                 break;
             } else if (isFilledMap()) {
-                System.out.println("\nDraw in the game. :|");
+                printMessage("\nDraw in the game. :|");
                 break;
             }
 
             doComputerMove();
             if (checkWin(computerCell)) {
-                System.out.println("\nGame over. Computer win! :(");
+                printMessage("\nGame over. Computer win! :(");
                 break;
             } else if (isFilledMap()) {
-                System.out.println("\nDraw in the game. :|");
+                printMessage("\nDraw in the game. :|");
                 break;
             }
         }
