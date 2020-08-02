@@ -15,11 +15,16 @@ public class Main {
         };
 
         for (Animal animal : animals) {
-            animal.toRun(200);
-            animal.toSwim(3);
-            animal.toJump(1);
             System.out.println();
+
+            animal.toRun( getLimit(1, 600) );
+            animal.toSwim( getLimit(1, 10) );
+            animal.toJump( getLimit(1, 3) );
         }
+    }
+
+    private static float getLimit(int min, int max) {
+        return new Random().nextFloat() * (max - min) + min;
     }
 
 }

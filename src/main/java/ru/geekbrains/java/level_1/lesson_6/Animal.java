@@ -10,21 +10,13 @@ public abstract class Animal {
     private float swimLimit;
     private float jumpLimit;
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
-    public float getRunLimit() {
-        return runLimit;
-    }
+    public float getRunLimit() { return runLimit; }
 
-    public float getSwimLimit() {
-        return swimLimit;
-    }
+    public float getSwimLimit() { return swimLimit; }
 
-    public float getJumpLimit() {
-        return jumpLimit;
-    }
+    public float getJumpLimit() { return jumpLimit; }
 
     public void setName(String name) {
         this.name = name;
@@ -44,10 +36,10 @@ public abstract class Animal {
 
     public boolean toRun (float value) {
         boolean isRun = value <= runLimit;
-        System.out.println(this.getClass().getSimpleName() + "[" +
-                           name + "] " +
-                           (isRun ? "сможет" : "не сможет") + " пробежать " +
-                           value + "м. Пердел составляет " +
+        System.out.println(
+                this.getClass().getSimpleName() + "[" + name + "] " +
+                (isRun ? "сможет" : "не сможет") + " пробежать " +
+                String.format("%.2f", value) + "м. Пердел составляет " +
                 String.format("%.2f", runLimit) + "м."
         );
         return isRun;
@@ -55,10 +47,9 @@ public abstract class Animal {
 
     public boolean toSwim (float value) {
         boolean isSwim = value <= swimLimit;
-        System.out.println(this.getClass().getSimpleName() + "[" +
-                name + "] " +
+        System.out.println(this.getClass().getSimpleName() + "[" + name + "] " +
                 (isSwim ? "сможет" : "не сможет") + " проплыть " +
-                value + "м. Пердел составляет " +
+                String.format("%.2f", value) + "м. Пердел составляет " +
                 String.format("%.2f", swimLimit) + "м."
         );
         return isSwim;
@@ -66,10 +57,9 @@ public abstract class Animal {
 
     public boolean toJump (float value) {
         boolean isJump = value <= jumpLimit;
-        System.out.println(this.getClass().getSimpleName() + "[" +
-                name + "] " +
+        System.out.println(this.getClass().getSimpleName() + "[" + name + "] " +
                 (isJump ? "сможет" : "не сможет") + " подпрыгнуть на " +
-                value + "м. Пердел составляет " +
+                String.format("%.2f", value) + "м. Пердел составляет " +
                 String.format("%.2f", jumpLimit) + "м."
         );
         return isJump;
