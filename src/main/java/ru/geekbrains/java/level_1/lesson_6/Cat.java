@@ -6,7 +6,6 @@ public class Cat extends Animal {
         setName(name);
 
         setRunLimit(5, 500);
-        setSwimLimit(0, 0);
         setJumpLimit(0, 2);
     }
 

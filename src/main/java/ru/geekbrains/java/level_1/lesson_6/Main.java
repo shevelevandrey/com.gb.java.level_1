@@ -1,5 +1,6 @@
 package ru.geekbrains.java.level_1.lesson_6;
 
+import java.lang.reflect.Method;
 import java.util.Random;
 
 public class Main {
@@ -18,8 +19,14 @@ public class Main {
             System.out.println();
 
             animal.toRun( getLimit(1, 600) );
-            animal.toSwim( getLimit(1, 10) );
             animal.toJump( getLimit(1, 3) );
+
+            try {
+                Method m = animal.getClass().getMethod("toSwim", new Class[]{float.class});
+                m.invoke(animal, getLimit(1, 10));
+            } catch (Exception e) {
+                System.out.println(animal.getClass().getSimpleName() + "[" + animal.getName() + "] не умеет плавать :(");
+            }
         }
     }
 

@@ -7,14 +7,11 @@ public abstract class Animal {
     private String name;
 
     private float runLimit;
-    private float swimLimit;
     private float jumpLimit;
 
     public String getName() { return name; }
 
     public float getRunLimit() { return runLimit; }
-
-    public float getSwimLimit() { return swimLimit; }
 
     public float getJumpLimit() { return jumpLimit; }
 
@@ -24,10 +21,6 @@ public abstract class Animal {
 
     public void setRunLimit(int min, int max) {
         runLimit = getLimit(min, max);
-    }
-
-    public void setSwimLimit(int min, int max) {
-        swimLimit = getLimit(min, max);
     }
 
     public void setJumpLimit(int min, int max) {
@@ -45,16 +38,6 @@ public abstract class Animal {
         return isRun;
     }
 
-    public boolean toSwim (float value) {
-        boolean isSwim = value <= swimLimit;
-        System.out.println(this.getClass().getSimpleName() + "[" + name + "] " +
-                (isSwim ? "сможет" : "не сможет") + " проплыть " +
-                String.format("%.2f", value) + "м. Пердел составляет " +
-                String.format("%.2f", swimLimit) + "м."
-        );
-        return isSwim;
-    }
-
     public boolean toJump (float value) {
         boolean isJump = value <= jumpLimit;
         System.out.println(this.getClass().getSimpleName() + "[" + name + "] " +
@@ -65,7 +48,7 @@ public abstract class Animal {
         return isJump;
     }
 
-    private float getLimit(int min, int max) {
+    protected float getLimit(int min, int max) {
         return new Random().nextFloat() * (max - min) + min;
     }
 
