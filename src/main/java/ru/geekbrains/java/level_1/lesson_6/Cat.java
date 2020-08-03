@@ -1,6 +1,6 @@
 package ru.geekbrains.java.level_1.lesson_6;
 
-public class Cat extends Animal {
+public class Cat extends Mammal {
 
     public Cat(String name) {
         setName(name);
