@@ -1,55 +1,15 @@
 package ru.geekbrains.java.level_1.lesson_6;
 
-import java.util.Random;
+public class Animal {
 
-public abstract class Animal {
+    protected String name;
 
-    private String name;
-
-    private float runLimit;
-    private float jumpLimit;
-
-    public String getName() { return name; }
-
-    public float getRunLimit() { return runLimit; }
-
-    public float getJumpLimit() { return jumpLimit; }
+    public String getName() {
+        return name;
+    }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setRunLimit(int min, int max) {
-        runLimit = getLimit(min, max);
-    }
-
-    public void setJumpLimit(int min, int max) {
-        jumpLimit = getLimit(min, max);
-    }
-
-    public boolean toRun (float value) {
-        boolean isRun = value <= runLimit;
-        System.out.println(
-                this.getClass().getSimpleName() + "[" + name + "] " +
-                (isRun ? "сможет" : "не сможет") + " пробежать " +
-                String.format("%.2f", value) + "м. Пердел составляет " +
-                String.format("%.2f", runLimit) + "м."
-        );
-        return isRun;
-    }
-
-    public boolean toJump (float value) {
-        boolean isJump = value <= jumpLimit;
-        System.out.println(this.getClass().getSimpleName() + "[" + name + "] " +
-                (isJump ? "сможет" : "не сможет") + " подпрыгнуть на " +
-                String.format("%.2f", value) + "м. Пердел составляет " +
-                String.format("%.2f", jumpLimit) + "м."
-        );
-        return isJump;
-    }
-
-    protected float getLimit(int min, int max) {
-        return new Random().nextFloat() * (max - min) + min;
     }
 
 }
