@@ -30,6 +30,7 @@ public class Main {
             } else {
                 System.out.println(animal.getClass().getSimpleName() + "[" + animal.getName() + "] не умеет плавать :(");
             }
+
         }
 
     }
