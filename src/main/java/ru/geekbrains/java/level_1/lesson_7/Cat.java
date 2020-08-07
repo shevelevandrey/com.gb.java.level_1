@@ -5,18 +5,18 @@ import java.util.Random;
 public class Cat {
     private String name;
     private int appetite;
-    private boolean isFullness;
+    private boolean fullness;
 
     public Cat(String name) {
         this.name = name;
         this.appetite = getAppetiteAtBirth(1, 10);
-        this.isFullness = false;
+        this.fullness = false;
     }
 
     public Cat(String name, int appetite) {
         this.name = name;
         this.appetite = appetite;
-        this.isFullness = false;
+        this.fullness = false;
     }
 
     public String getName() {
@@ -28,7 +28,7 @@ public class Cat {
     }
 
     public boolean isFullness() {
-        return isFullness;
+        return fullness;
     }
 
     public void setAppetite(int appetite) {
@@ -36,10 +36,10 @@ public class Cat {
     }
 
     public void eat(Plate p) {
-        if (!isFullness) {
+        if (!fullness) {
             if (p.getFood() >= appetite) {
                 p.decreaseFood(appetite);
-                isFullness = !isFullness;
+                fullness = !fullness;
 
                 System.out.println(this.getClass().getSimpleName() + "[" + this.getName() + "] покушал.");
             } else {
@@ -53,7 +53,7 @@ public class Cat {
     }
 
     public void info() {
-        if (isFullness) {
+        if (fullness) {
             System.out.println(this.getClass().getSimpleName() + "[" + this.getName() + "]. не голоден.");
         } else {
             System.out.println(this.getClass().getSimpleName() + "[" + this.getName() + "]. голоден; Аппетит котенка: " + appetite + ".");
