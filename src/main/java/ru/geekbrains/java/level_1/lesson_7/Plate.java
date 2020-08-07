@@ -8,7 +8,7 @@ public class Plate {
     }
 
     public void setFood(int food) {
-        this.food = this.food + food;
+        this.food += food;
         System.out.println("Добавили еду в тарелку в размере:  " + food);
     }
 
