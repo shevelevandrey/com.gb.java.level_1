@@ -90,7 +90,10 @@ public final class Calculator extends JFrame implements ActionListener {
         if (isDotPressed) {
             display.setValue("" + operand1);
         } else {
-            display.setValue("" + (long) operand1);
+            if (operand1 % 1 == 0)
+                display.setValue("" + (long) operand1);
+            else
+                display.setValue("" + operand1);
         }
         this.previousOperator = operator;
     }
